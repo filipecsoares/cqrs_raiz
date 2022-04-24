@@ -12,7 +12,7 @@
     <name>product-query</name>
     <description>Product Query</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>

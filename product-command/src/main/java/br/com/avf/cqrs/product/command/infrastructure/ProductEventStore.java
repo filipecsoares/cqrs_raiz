@@ -4,6 +4,7 @@ import br.com.avf.cqrs.core.events.BaseEvent;
 import br.com.avf.cqrs.core.events.EventModel;
 import br.com.avf.cqrs.core.exceptions.AggregateNotFoundException;
 import br.com.avf.cqrs.core.infraestructures.EventStore;
+import br.com.avf.cqrs.core.producers.EventProducer;
 import br.com.avf.cqrs.product.command.codec.Codec;
 import br.com.avf.cqrs.product.command.domain.EventStoreRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ import java.util.stream.Collectors;
 public class ProductEventStore implements EventStore {
 
     private final EventStoreRepository repository;
-    private final ProductEventProducer producer;
+    private final EventProducer producer;
 
 
     @Override

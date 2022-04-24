@@ -1,6 +1,7 @@
 package br.com.avf.cqrs.product.query.infrastructure.handlers;
 
 import br.com.avf.cqrs.product.commons.events.ProductCreatedEvent;
+import br.com.avf.cqrs.product.commons.events.ProductUpdatedEvent;
 import br.com.avf.cqrs.product.query.domains.ProductRepository;
 import br.com.avf.cqrs.product.query.infrastructure.codec.Codec;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,12 @@ public class ProductEventHandler implements EventHandler {
 
     @Override
     public void on(ProductCreatedEvent event) {
+        var entity = Codec.toEntity(event);
+        this.repository.save(entity);
+    }
+
+    @Override
+    public void on(ProductUpdatedEvent event) {
         var entity = Codec.toEntity(event);
         this.repository.save(entity);
     }

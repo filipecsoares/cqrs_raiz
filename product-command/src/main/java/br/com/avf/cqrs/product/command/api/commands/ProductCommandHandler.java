@@ -20,4 +20,10 @@ public class ProductCommandHandler implements CommandHandler {
         var aggregate = new ProductAggregate(command);
         eventSourcingHandler.save(aggregate);
     }
+
+    @Override
+    public void handle(UpdateProductCommand command) {
+        var aggregate = new ProductAggregate(command);
+        eventSourcingHandler.save(aggregate);
+    }
 }
