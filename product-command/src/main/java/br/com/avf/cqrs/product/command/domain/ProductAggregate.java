@@ -5,6 +5,7 @@ import br.com.avf.cqrs.product.command.api.commands.CreateProductCommand;
 import br.com.avf.cqrs.product.command.api.commands.UpdateProductCommand;
 import br.com.avf.cqrs.product.command.codec.Codec;
 import br.com.avf.cqrs.product.commons.events.ProductCreatedEvent;
+import br.com.avf.cqrs.product.commons.events.ProductUpdatedEvent;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
@@ -34,4 +35,11 @@ public class ProductAggregate extends AggregateRoot {
         this.price = event.getPrice();
     }
 
+    public void apply(ProductUpdatedEvent event) {
+        this.id = event.getId();
+        this.name = event.getName();
+        this.quantity = event.getQuantity();
+        this.price = event.getPrice();
+        this.setVersion(event.getVersion());
+    }
 }

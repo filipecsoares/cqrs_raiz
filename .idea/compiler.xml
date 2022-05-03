@@ -22,8 +22,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
-        <module name="product-query" />
         <module name="product-commons" />
+        <module name="product-query" />
         <module name="product-command" />
       </profile>
     </annotationProcessing>
